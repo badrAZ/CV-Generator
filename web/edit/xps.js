@@ -27,7 +27,7 @@ export default class Xps extends React.Component {
 
   _addXp = () =>
     this._mutateXps(xps =>
-      xps.push({
+      xps.unshift({
         company: '',
         period: '',
         poste: '',

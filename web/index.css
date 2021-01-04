@@ -67,6 +67,7 @@ body {
 
 /* paragraph */
 
+.content p,
 .content ul {
   margin-bottom: 0;
 }

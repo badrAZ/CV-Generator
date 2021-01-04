@@ -6,6 +6,7 @@ import React from 'react'
 
 import { getData, setData } from '../controller'
 
+import Formations from './formations'
 import General from './general'
 import Xps from './xps'
 
@@ -64,6 +65,15 @@ export default class Edit extends React.Component {
     }))
   }
 
+  _onFormationsChange = formations => {
+    this.setState(state => ({
+      data: {
+        ...state.data,
+        formations,
+      },
+    }))
+  }
+
   _onSubmit = () => {
     setData(this.state.data).then(() => this._getData(), console.error)
   }
@@ -74,7 +84,7 @@ export default class Edit extends React.Component {
       return null
     }
 
-    const { general, xp } = data
+    const { formations, general, xp } = data
     return (
       <Card className='mt-3'>
         <Card.Header className='text-center'>
@@ -84,6 +94,10 @@ export default class Edit extends React.Component {
           <Form onSubmit={this._onSubmit}>
             <General general={general} onChange={this._onGeneralChange} />
             <Xps xps={xp} onChange={this._onXpsChange} />
+            <Formations
+              formations={formations}
+              onChange={this._onFormationsChange}
+            />
             <Form.Row className='mt-2 text-md-center'>
               <Col>
                 <Button variant='success' type='submit'>
