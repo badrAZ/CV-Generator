@@ -3,11 +3,11 @@ import React from 'react'
 
 const Hobbies = ({ hobbies }) => (
   <div>
-    <b>{hobbies.join(', ')}</b>
+    <b>{hobbies}</b>
   </div>
 )
 Hobbies.propTypes = {
-  hobbies: PropTypes.arrayOf(PropTypes.string),
+  hobbies: PropTypes.string,
 }
 
 export { Hobbies as default }

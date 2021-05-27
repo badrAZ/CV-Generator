@@ -21,5 +21,8 @@ Languages.propTypes = {
     level: PropTypes.string,
   }),
 }
+Languages.defaultProps = {
+  languages: [],
+}
 
 export { Languages as default }

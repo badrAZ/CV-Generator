@@ -17,10 +17,10 @@ const Xps = ({ xps }) => (
             {xp.period}
           </ResponsiveCol>
         </Row>
-        <Row>
+        <Row className='mt-1'>
           <Col className='awesome'>{xp.poste}</Col>
         </Row>
-        <Row>
+        <Row className='mt-1'>
           <Col>
             <p
               className='content'
@@ -44,6 +44,9 @@ Xps.propTypes = {
     missions: PropTypes.arrayOf(PropTypes.string),
     technologies: PropTypes.arrayOf(PropTypes.string),
   }),
+}
+Xps.defaultProps = {
+  xps: [],
 }
 
 export { Xps as default }

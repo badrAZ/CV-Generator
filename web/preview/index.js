@@ -20,7 +20,7 @@ export default class Preview extends React.Component {
     super(props)
     this.state = {}
 
-    getData().then(data => {
+    getData(this.props.tmp).then(data => {
       this.setState({
         data,
       })
@@ -40,12 +40,12 @@ export default class Preview extends React.Component {
             <General general={data.general} />
           </Col>
         </Row>
-        <Row>
+        <Row className='mt-3'>
           <Col>
             <Title title='Expériences professionnelles' />
           </Col>
         </Row>
-        <Row>
+        <Row className='mt-2'>
           <Xps xps={data.xp} />
         </Row>
         <Row>
@@ -53,35 +53,35 @@ export default class Preview extends React.Component {
             <Title title='Formations' />
           </Col>
         </Row>
-        <Row>
+        <Row className='mt-2'>
           <Formations formations={data.formations} />
         </Row>
-        <Row>
+        <Row className='mt-1'>
           <Col>
             <Title title='Domaines de connaissances' />
           </Col>
         </Row>
-        <Row>
+        <Row className='mt-2'>
           <Skills skills={data.skills} />
         </Row>
-        <Row>
+        <Row className='mt-1'>
           <Col>
             <Title title='Langues' />
           </Col>
         </Row>
-        <Row>
+        <Row className='mt-2'>
           <Container fluid>
             <Row>
               <Languages languages={data.languages} />
             </Row>
           </Container>
         </Row>
-        <Row>
+        <Row className='mt-1'>
           <Col>
             <Title title='Centres d’intérêts' />
           </Col>
         </Row>
-        <Row>
+        <Row className='mt-2'>
           <Col>
             <Hobbies hobbies={data.hobbies} />
           </Col>

@@ -2,25 +2,17 @@ import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 import { getData, setData } from '../controller'
 
 import Formations from './formations'
 import General from './general'
+import Languages from './languages'
+import Skills from './skills'
 import Xps from './xps'
-
-const printCv = () => {
-  const page = document.getElementsByClassName('page')[0].innerHTML
-  const tmpPage = `<html><head><title>CV</title></head><body>${page}</body></html>`
-
-  const realPage = document.body.innerHTML
-  document.body.innerHTML = tmpPage
-
-  window.print()
-
-  document.body.innerHTML = realPage
-}
+import Hobbies from './hobbies'
 
 export default class Edit extends React.Component {
   constructor(props) {
@@ -30,17 +22,7 @@ export default class Edit extends React.Component {
   }
 
   _getData() {
-    getData().then(data => {
-      if (data === undefined) {
-        data = {
-          general: {},
-          xp: [],
-          formations: [],
-          skills: {},
-          languages: [],
-          hobbies: [],
-        }
-      }
+    getData(this.props.tmp).then(data => {
       this.setState({
         data,
       })
@@ -74,17 +56,43 @@ export default class Edit extends React.Component {
     }))
   }
 
+  _onSkillsChange = skills => {
+    this.setState(state => ({
+      data: {
+        ...state.data,
+        skills,
+      },
+    }))
+  }
+
+  _onLanguagesChange = languages => {
+    this.setState(state => ({
+      data: {
+        ...state.data,
+        languages,
+      },
+    }))
+  }
+
+  _onHobbiesChange = hobbies => {
+    this.setState(state => ({
+      data: {
+        ...state.data,
+        hobbies,
+      },
+    }))
+  }
+
   _onSubmit = () => {
-    setData(this.state.data).then(() => this._getData(), console.error)
+    setData(this.state.data, this.props.tmp).then(
+      () => this._getData(),
+      console.error
+    )
   }
 
   render() {
-    const { data } = this.state
-    if (data === undefined) {
-      return null
-    }
-
-    const { formations, general, xp } = data
+    const { data = {} } = this.state
+    const { formations, general, hobbies, languages, skills, xp } = data
     return (
       <Card className='mt-3'>
         <Card.Header className='text-center'>
@@ -98,13 +106,16 @@ export default class Edit extends React.Component {
               formations={formations}
               onChange={this._onFormationsChange}
             />
+            <Skills skills={skills} onChange={this._onSkillsChange} />
+            <Languages
+              languages={languages}
+              onChange={this._onLanguagesChange}
+            />
+            <Hobbies hobbies={hobbies} onChange={this._onHobbiesChange} />
             <Form.Row className='mt-2 text-md-center'>
               <Col>
                 <Button variant='success' type='submit'>
                   Save
-                </Button>{' '}
-                <Button variant='primary' onClick={printCv}>
-                  Print
                 </Button>
               </Col>
             </Form.Row>
@@ -113,4 +124,7 @@ export default class Edit extends React.Component {
       </Card>
     )
   }
+}
+Edit.propTypes = {
+  tmp: PropTypes.bool,
 }

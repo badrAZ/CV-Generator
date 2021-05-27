@@ -123,5 +123,8 @@ General.propTypes = {
     linkedin: PropTypes.string,
   }).isRequired,
 }
+General.defaultProps = {
+  general: {},
+}
 
 export { General as default }

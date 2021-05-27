@@ -26,5 +26,8 @@ Formations.propTypes = {
     school: PropTypes.string,
   }),
 }
+Formations.defaultProps = {
+  formations: [],
+}
 
 export { Formations as default }

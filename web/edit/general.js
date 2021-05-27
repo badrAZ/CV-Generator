@@ -120,3 +120,6 @@ General.propTypes = {
   onChange: PropTypes.func.isRequired,
   general: PropTypes.object,
 }
+General.defaultProps = {
+  general: {},
+}

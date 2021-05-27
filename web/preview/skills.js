@@ -7,18 +7,24 @@ import { ResponsiveCol } from 'common'
 
 const Skills = ({ skills }) => (
   <Container fluid>
-    {Object.entries(skills).map(([key, value]) => (
-      <Row key={key}>
-        <ResponsiveCol className='text-right' size={2}>
-          <b>{key}</b>
+    {skills.map(({ domain, value }) => (
+      <Row key={domain}>
+        <ResponsiveCol className='text-right' size={3}>
+          <b>{domain}</b>
         </ResponsiveCol>
-        <Col>{value.join(', ')}</Col>
+        <Col>{value}</Col>
       </Row>
     ))}
   </Container>
 )
 Skills.propTypes = {
-  skills: PropTypes.object,
+  skills: PropTypes.arrayOf({
+    domaine: PropTypes.string.isRequired,
+    skills: PropTypes.string.isRequired,
+  }),
+}
+Skills.defaultProps = {
+  skills: [],
 }
 
 export { Skills as default }
