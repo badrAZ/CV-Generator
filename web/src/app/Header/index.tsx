@@ -11,8 +11,9 @@ const Header: FC<Types.IProps> = () => {
 
   const onLogin = useCallback(() => {
     openLoginModal({
-      body: <div>jnflkjfkljkdjfk</div>,
-      title: <div>test</div>,
+      title: <div>title</div>,
+      body: <div>body</div>,
+      footer: <div>footer</div>,
     }).then(
       () => {
         console.log('action')

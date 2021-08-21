@@ -5,6 +5,7 @@ import {
   Dialog,
   DialogTitle,
   DialogContent,
+  DialogActions,
   IconButton,
 } from '@material-ui/core'
 // Types
@@ -41,6 +42,7 @@ const App: FC<Types.IProps> = () => {
             </div>
           </DialogTitle>
           <DialogContent dividers>{modalProps.body}</DialogContent>
+          <DialogActions>{modalProps.footer}</DialogActions>
         </Dialog>
       </ModalContext.Provider>
     </div>

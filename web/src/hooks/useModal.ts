@@ -9,7 +9,15 @@ export interface IUseModal {}
 const useModal = () => {
   const { value, setValue } = useContext(ModalContext)
   const openModal = useCallback(
-    ({ title, body }: { title: JSX.Element; body: JSX.Element }) => {
+    ({
+      title,
+      body,
+      footer,
+    }: {
+      footer: JSX.Element
+      title: JSX.Element
+      body: JSX.Element
+    }) => {
       if (value.watcher !== undefined) {
         // cannot open two modals
         return Promise.reject()
@@ -21,6 +29,7 @@ const useModal = () => {
       })
 
       setValue({
+        footer,
         body,
         title,
         watcher,

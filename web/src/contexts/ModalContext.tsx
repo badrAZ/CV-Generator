@@ -4,6 +4,7 @@ export const defaultModalContextValue = {
   watcher: undefined,
   body: <div />,
   title: <div />,
+  footer: <div />,
   handleClose: () => {},
 }
 
@@ -12,6 +13,7 @@ export interface IModalContext {
     watcher: Promise<any> | undefined
     title: JSX.Element
     body: JSX.Element
+    footer: JSX.Element
     handleClose: (...args: any) => void
   }
   setValue: Function
