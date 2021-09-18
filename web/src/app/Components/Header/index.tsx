@@ -1,6 +1,6 @@
 // React libs
 import React, { FC } from 'react'
-import { Typography, AppBar, Toolbar, Button } from '@material-ui/core'
+import { Typography, AppBar, Toolbar, Button } from '@mui/material'
 // Types
 import * as Types from './index.type'
 

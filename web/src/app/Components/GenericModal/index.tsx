@@ -1,13 +1,13 @@
 // React libs
 import React, { FC, useContext } from 'react'
-import { Close } from '@material-ui/icons'
+import { Close } from '@mui/icons-material'
 import {
   Dialog,
   DialogTitle,
   DialogContent,
   DialogActions,
   IconButton,
-} from '@material-ui/core'
+} from '@mui/material'
 // Types
 import * as Types from './index.type'
 // Contexts
