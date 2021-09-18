@@ -1,0 +1,11 @@
+{
+  "components": {
+    "MuiAppBar": {
+      "styleOverrides": {
+        "colorPrimary": {
+          "background-color": "#27ae60"
+        }
+      }
+    }
+  }
+}

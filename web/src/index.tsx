@@ -4,9 +4,17 @@ import './index.css'
 import App from '@app/App'
 import reportWebVitals from './reportWebVitals'
 
+// MUI customization
+import customizedMuiTheme from './muiTheme.json'
+import { createTheme, ThemeProvider } from '@mui/material'
+
+const muiTheme = createTheme(customizedMuiTheme)
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={muiTheme}>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 )
