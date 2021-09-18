@@ -14,6 +14,7 @@ module.exports = {
       '@views': path.resolve(__dirname, 'src/views/'),
       '@utils': path.resolve(__dirname, 'src/utils/'),
       '@hooks': path.resolve(__dirname, 'src/hooks/'),
+      '@common': path.resolve(__dirname, 'src/common/'),
     },
   },
 }

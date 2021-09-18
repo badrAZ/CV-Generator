@@ -7,7 +7,8 @@
       "@services/*": ["src/services/*"],
       "@views/*": ["src/views/*"],
       "@utils/*": ["src/utils/*"],
-      "@hooks/*": ["src/hooks/*"]
+      "@hooks/*": ["src/hooks/*"],
+      "@common/*": ["src/common/*"]
     }
   }
 }

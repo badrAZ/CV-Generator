@@ -1,19 +1,15 @@
 // React libs
 import React, { FC, useState } from 'react'
-import { Close } from '@material-ui/icons'
-import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  IconButton,
-} from '@material-ui/core'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 // Types
 import * as Types from './App.type'
 // Components
-import Header from './Header'
+import Home from './Pages/Home/index'
+import GenericModal from './Components/GenericModal'
 // Contexts
 import ModalContext, { defaultModalContextValue } from '@contexts/ModalContext'
+// Common
+import { homeRoute } from '@common/routes'
 
 const App: FC<Types.IProps> = () => {
   const [modalProps, updateModalProps] = useState(defaultModalContextValue)
@@ -23,29 +19,14 @@ const App: FC<Types.IProps> = () => {
       <ModalContext.Provider
         value={{ value: modalProps, setValue: updateModalProps }}
       >
-        <Header />
-        <Dialog
-          fullWidth
-          open={modalProps.watcher !== undefined}
-          onClose={modalProps.handleClose}
-        >
-          <DialogTitle>
-            <div className='flex justify-between'>
-              <div className='flex items-center'>{modalProps.title}</div>
-              <IconButton
-                edge='end'
-                className='justify-self-end'
-                onClick={modalProps.handleClose}
-              >
-                <Close />
-              </IconButton>
-            </div>
-          </DialogTitle>
-          <DialogContent dividers>{modalProps.body}</DialogContent>
-          {modalProps.footer !== undefined && (
-            <DialogActions>{modalProps.footer}</DialogActions>
-          )}
-        </Dialog>
+        <GenericModal />
+        <Router>
+          <switch>
+            <Route path={homeRoute}>
+              <Home />
+            </Route>
+          </switch>
+        </Router>
       </ModalContext.Provider>
     </div>
   )
