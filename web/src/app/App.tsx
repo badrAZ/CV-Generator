@@ -42,7 +42,9 @@ const App: FC<Types.IProps> = () => {
             </div>
           </DialogTitle>
           <DialogContent dividers>{modalProps.body}</DialogContent>
-          <DialogActions>{modalProps.footer}</DialogActions>
+          {modalProps.footer !== undefined && (
+            <DialogActions>{modalProps.footer}</DialogActions>
+          )}
         </Dialog>
       </ModalContext.Provider>
     </div>

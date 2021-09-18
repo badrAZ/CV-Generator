@@ -1,27 +1,10 @@
 // React libs
-import React, { FC, useCallback } from 'react'
+import React, { FC } from 'react'
 import { Typography, AppBar, Toolbar, Button } from '@material-ui/core'
 // Types
 import * as Types from './index.type'
-// Hooks
-import useModal from '@hooks/useModal'
 
 const Header: FC<Types.IProps> = () => {
-  const { openModal: openLoginModal } = useModal()
-
-  const onLogin = useCallback(() => {
-    openLoginModal({
-      title: <div>title</div>,
-      body: <div>body</div>,
-      footer: <div>footer</div>,
-    }).then(
-      () => {
-        console.log('action')
-      },
-      () => {}
-    )
-  }, [openLoginModal])
-
   return (
     <div>
       <AppBar color='primary' position='static'>
@@ -31,7 +14,7 @@ const Header: FC<Types.IProps> = () => {
           </div>
           <div />
           <div>
-            <Button color='inherit' onClick={onLogin}>
+            <Button color='inherit' onClick={() => {}}>
               Login
             </Button>
           </div>
