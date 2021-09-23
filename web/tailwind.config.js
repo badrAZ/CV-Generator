@@ -5,6 +5,11 @@ module.exports = {
     extend: {
       backgroundColor: theme => ({
         main: '#2ecc71',
+        subMain: '#2ecc71',
+      }),
+      height: theme => ({
+        '0.7/10': '7%',
+        '9.3/10': '93%',
       }),
     },
   },

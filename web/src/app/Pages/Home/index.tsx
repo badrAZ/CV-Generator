@@ -3,14 +3,10 @@ import React, { FC } from 'react'
 // Types
 import * as Types from './index.type'
 // Components
-import Header from '@app/Components/Header'
+import AppLayout from '@app/Components/AppLayout'
 
 const Home: FC<Types.IProps> = () => {
-  return (
-    <div>
-      <Header />
-    </div>
-  )
+  return <AppLayout>Home</AppLayout>
 }
 
 export default Home

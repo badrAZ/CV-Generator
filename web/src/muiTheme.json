@@ -3,7 +3,7 @@
     "MuiAppBar": {
       "styleOverrides": {
         "colorPrimary": {
-          "background-color": "#27ae60"
+          "backgroundColor": "#27ae60"
         }
       }
     }

@@ -1,1 +1,10 @@
-["app", "contexts", "services", "views", "utils", "hooks", "common"]
+[
+  "app",
+  "contexts",
+  "services",
+  "views",
+  "utils",
+  "hooks",
+  "common",
+  "resources"
+]
